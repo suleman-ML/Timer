@@ -5,8 +5,8 @@
 			var min = 0;
 			var hour = 0;
 			var theResult = "";
-			function stopwatch(text){
-				sec++;
+			function stopwatch(text) {
+			   sec++;
 			  if (sec == 60) {
 			   sec = 0;
 			   min = min + 1; }
@@ -16,52 +16,173 @@
 			   min = 0; 
 			   hour += 1; }
 
-			if (sec<=9) { sec = "0" + sec; }
+			if (sec<=9) { sec = "0" + sec;}
 			   document.clock.stwa.value = ((hour<=9) ? "0"+hour : hour) + " : " + ((min<=9) ? "0" + min : min) + " : " + sec;
-			  if (text == "Start") { document.clock.theButton.value = "Stop "; }
-			  if (text == "Stop ") { document.clock.theButton.value = "Start"; sec = sec-1; sec--; }
+			  if (text == "Start") { document.clock.theButton.value = "Stop ";}
+			  if (text == "Stop ") { document.clock.theButton.value = "Start"; sec = sec-1; sec--;}
 
 			  if (document.clock.theButton.value == "Start") {
-			   return true; }
+			   return true;
+			  }
 			SD=window.setTimeout("stopwatch();", 1000);
 
 			 theResult = document.clock.stwa.value;
 			}
 
-			function resetIt() {
+			function resetIt(){
 			  sec = 0;
 			  min = 0;
 			  hour = 0;
-			  if (document.clock.theButton.value == "Stop ") {
-			  document.clock.theButton.value = "Start"; }
+			  if (document.clock.theButton.value == "Stop "){
+			  document.clock.theButton.value = "Start";
+			  }
 			  window.clearTimeout(SD);
 			 }
 
-			function saveIt() {
-			 if (document.clock.saver.value == "Save Time 1") {
-			   document.clock.saver.value = "Save Time 2";
-			 document.getElementById('time01').innerHTML = "<b>Time 1 =</b> " + theResult + "<br />";
-			 setCookie('cookie01',document.getElementById('time01').innerHTML, exp);
-			 return;
-			 }
-			 if (document.clock.saver.value == "Save Time 2") {
-			   document.clock.saver.value = "Save Time 3";
-			 document.getElementById('time02').innerHTML = "<b>Time 2 =</b> " + theResult + "<br />";
-			 setCookie('cookie02',document.getElementById('time02').innerHTML, exp)
-			 return;
-			 }
-			 if (document.clock.saver.value == "Save Time 3") {
-			   document.clock.saver.value = "Reset Times!";
-			 document.getElementById('time03').innerHTML = "<b>Time 3 =</b> " + theResult;
-			 setCookie('cookie03',document.getElementById('time03').innerHTML, exp);
-			 return;
-			 }
-			 if (document.clock.saver.value == "Reset Times!") {
-			  document.getElementById('time01').innerHTML = "";
-			  document.getElementById('time02').innerHTML = "";
-			  document.getElementById('time03').innerHTML = "";
-			  document.clock.saver.value = "Save Time 1";
-			 }
+			function saveIt(){
+				if(document.clock.saver.value == "Save Time 1"){
+				document.clock.saver.value = "Save Time 2";
+				document.getElementById('time01').innerHTML = "Time 1 = " + theResult;
+				setCookie('cookie01',document.getElementById('time01').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 2"){
+				document.clock.saver.value = "Save Time 3";
+				document.getElementById('time02').innerHTML = "Time 2 = " + theResult;
+				setCookie('cookie02',document.getElementById('time02').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 3"){
+				document.clock.saver.value = "Save Time 4";
+				document.getElementById('time03').innerHTML = "Time 3 = " + theResult;
+				setCookie('cookie03',document.getElementById('time03').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 4"){
+				document.clock.saver.value = "Save Time 5";
+				document.getElementById('time04').innerHTML = "Time 4 = " + theResult;
+				setCookie('cookie04',document.getElementById('time04').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 5"){
+				document.clock.saver.value = "Save Time 6";
+				document.getElementById('time05').innerHTML = "Time 5 = " + theResult;
+				setCookie('cookie05',document.getElementById('time05').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 6"){
+				document.clock.saver.value = "Save Time 7";
+				document.getElementById('time06').innerHTML = "Time 6 = " + theResult;
+				setCookie('cookie06',document.getElementById('time06').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 7"){
+				document.clock.saver.value = "Save Time 8";
+				document.getElementById('time07').innerHTML = "Time 7 = " + theResult;
+				setCookie('cookie07',document.getElementById('time07').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 8"){
+				document.clock.saver.value = "Save Time 9";
+				document.getElementById('time08').innerHTML = "Time 8 = " + theResult;
+				setCookie('cookie08',document.getElementById('time08').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 9"){
+				document.clock.saver.value = "Save Time 10";
+				document.getElementById('time09').innerHTML = "Time 9 = " + theResult;
+				setCookie('cookie09',document.getElementById('time09').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 10"){
+				document.clock.saver.value = "Save Time 11";
+				document.getElementById('time10').innerHTML = "Time 10 = " + theResult;
+				setCookie('cookie10',document.getElementById('time10').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 11"){
+				document.clock.saver.value = "Save Time 12";
+				document.getElementById('time11').innerHTML = "Time 11 = " + theResult;
+				setCookie('cookie11',document.getElementById('time11').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 12"){
+				document.clock.saver.value = "Save Time 13";
+				document.getElementById('time12').innerHTML = "Time 12 = " + theResult;
+				setCookie('cookie12',document.getElementById('time12').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 13"){
+				document.clock.saver.value = "Save Time 14";
+				document.getElementById('time13').innerHTML = "Time 13 = " + theResult;
+				setCookie('cookie13',document.getElementById('time13').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 14"){
+				document.clock.saver.value = "Save Time 15";
+				document.getElementById('time14').innerHTML = "Time 14 = " + theResult;
+				setCookie('cookie14',document.getElementById('time14').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 15"){
+				document.clock.saver.value = "Save Time 16";
+				document.getElementById('time15').innerHTML = "Time 15 = " + theResult;
+				setCookie('cookie15',document.getElementById('time15').innerHTML, exp);	
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 16"){
+				document.clock.saver.value = "Save Time 17";
+				document.getElementById('time16').innerHTML = "Time 16 = " + theResult;
+				setCookie('cookie16',document.getElementById('time16').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 17"){
+				document.clock.saver.value = "Save Time 18";
+				document.getElementById('time17').innerHTML = "Time 17 = " + theResult;
+				setCookie('cookie17',document.getElementById('time17').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 18"){
+				document.clock.saver.value = "Save Time 19";
+				document.getElementById('time18').innerHTML = "Time 18 = " + theResult;
+				setCookie('cookie18',document.getElementById('time18').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 19"){
+				document.clock.saver.value = "Save Time 20";
+				document.getElementById('time19').innerHTML = "Time 19 = " + theResult;
+				setCookie('cookie19',document.getElementById('time19').innerHTML, exp);
+				return;
+				}
+				if(document.clock.saver.value == "Save Time 20"){
+				document.clock.saver.value = "Reset Times!";
+				document.getElementById('time20').innerHTML = "Time 20 = " + theResult;
+				setCookie('cookie20',document.getElementById('time20').innerHTML, exp);
+				return;
+				} 
+				if(document.clock.saver.value == "Reset Times!"){
+				document.getElementById('time01').innerHTML = "";
+				document.getElementById('time02').innerHTML = "";
+				document.getElementById('time03').innerHTML = "";
+				document.getElementById('time04').innerHTML = "";
+				document.getElementById('time05').innerHTML = "";
+				document.getElementById('time06').innerHTML = "";
+				document.getElementById('time07').innerHTML = "";
+				document.getElementById('time08').innerHTML = "";
+				document.getElementById('time09').innerHTML = "";
+				document.getElementById('time10').innerHTML = "";
+				document.getElementById('time11').innerHTML = "";
+				document.getElementById('time12').innerHTML = "";
+				document.getElementById('time13').innerHTML = "";
+				document.getElementById('time14').innerHTML = "";
+				document.getElementById('time15').innerHTML = "";
+				document.getElementById('time16').innerHTML = "";
+				document.getElementById('time17').innerHTML = "";
+				document.getElementById('time18').innerHTML = "";
+				document.getElementById('time19').innerHTML = "";
+				document.getElementById('time20').innerHTML = "";
+				document.clock.saver.value = "Save Time 1";
+				}
 			}
 /*			var month = new Array("01","02","03","04","05","06","07","08","09","10","11","12");
 			function print_date(){
@@ -106,7 +227,7 @@
   <tr>
      <td align="center">
        <font face="verdana, arial, helvetica, sans-serif" size="2">
-       <b>STOPWATCH</b></font>
+       STOPWATCH</font>
      </td>
   </tr>
   <tr>
@@ -116,31 +237,115 @@
 		<input type="button" name="theButton" onClick="stopwatch(this.value);" value="Start" />
 		<input type="button" value="Reset" onClick="resetIt();reset();" /><br />
 		<input type="button" name="saver" value="Save Time 1" onClick="saveIt(); setCookie('Cookie/\d/',document.getElementById('').innerHTML, exp)" />
-		<!--<input type="button" value="Set a Cookie" onclick="setCookie('myCookie',document.getElementById('time01').innerHTML, exp)">-->
      </td>
   </tr>
   <tr>
      <td align="center">
-      <span id="time01" style="text-align:center; font-family:arial; font-size:10pt"></span>
-      <span id="time02" style="text-align:center; font-family:arial; font-size:10pt"></span>
-      <span id="time03" style="text-align:center; font-family:arial; font-size:10pt"></span>
-      </form>
+		<span id="time01" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time02" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time03" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time04" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time05" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time06" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time07" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time08" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time09" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time10" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time11" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time12" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time13" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time14" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time15" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time16" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time17" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time18" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time19" style="text-align:center; font-family:arial; font-size:10pt"></span>
+		<span id="time20" style="text-align:center; font-family:arial; font-size:10pt"></span>
+	</form>
      </td>
   </tr>
 </table>
 <!--<form name="form1"><input type="hidden" name="theYear" /></form>-->
       
 <form>
-<input type="button" value="Get Cookie 1 Value" onClick="this.form.tf.value = getCookie('cookie01')">
-<input type="text" name="tf" size="30"><br />
+	<input type="button" value="Get Cookie 01 Value" onClick="this.form.tf.value = getCookie('cookie01')">
+	<input type="text" name="tf" size="30"><br />
 </form>
 <form>
-<input type="button" value="Get Cookie 2 Value" onClick="this.form.tf.value = getCookie('cookie02')">
-<input type="text" name="tf" size="30"><br />
+	<input type="button" value="Get Cookie 02 Value" onClick="this.form.tf.value = getCookie('cookie02')">
+	<input type="text" name="tf" size="30"><br />
 </form>
 <form>
-<input type="button" value="Get Cookie 3 Value" onClick="this.form.tf.value = getCookie('cookie03')">
-<input type="text" name="tf" size="30"><br />
+	<input type="button" value="Get Cookie 03 Value" onClick="this.form.tf.value = getCookie('cookie03')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 04 Value" onClick="this.form.tf.value = getCookie('cookie04')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 05 Value" onClick="this.form.tf.value = getCookie('cookie05')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 06 Value" onClick="this.form.tf.value = getCookie('cookie06')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 07 Value" onClick="this.form.tf.value = getCookie('cookie07')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 08 Value" onClick="this.form.tf.value = getCookie('cookie08')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 09 Value" onClick="this.form.tf.value = getCookie('cookie09')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 10 Value" onClick="this.form.tf.value = getCookie('cookie10')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 11 Value" onClick="this.form.tf.value = getCookie('cookie11')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 12 Value" onClick="this.form.tf.value = getCookie('cookie12')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 13 Value" onClick="this.form.tf.value = getCookie('cookie13')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 14 Value" onClick="this.form.tf.value = getCookie('cookie14')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 15 Value" onClick="this.form.tf.value = getCookie('cookie15')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 16 Value" onClick="this.form.tf.value = getCookie('cookie16')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 17 Value" onClick="this.form.tf.value = getCookie('cookie17')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 18 Value" onClick="this.form.tf.value = getCookie('cookie18')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 19 Value" onClick="this.form.tf.value = getCookie('cookie19')">
+	<input type="text" name="tf" size="30"><br />
+</form>
+<form>
+	<input type="button" value="Get Cookie 20 Value" onClick="this.form.tf.value = getCookie('cookie20')">
+	<input type="text" name="tf" size="30"><br />
 </form>
 </body>
 </html>

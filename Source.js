@@ -4,12 +4,30 @@ var stoptime = 0;
 var currenttime;
 var splitdate = '';
 var clock;
-var myArray = [];
+var timeArray = [];
+var dateArray = [];
+var date = new Date();
+var month = new Array();
+	month[0] = "January";
+	month[1] = "February";
+	month[2] = "March";
+	month[3] = "April";
+	month[4] = "May";
+	month[5] = "June";
+	month[6] = "July";
+	month[7] = "August";
+	month[8] = "September";
+	month[9] = "October";
+	month[10] = "November";
+	month[11] = "December";
+var startdate = date.getDate();
+var startmonth = month[date.getMonth()];
+var startFullYear = date.getFullYear();
+var starttime = date.getTime();
 //This starts the stopwatch//
 function startTimer(){
 	var startTimer = document.getElementById('startstoptimer');
-	var startdate = new Date();
-	var starttime = startdate.getTime();
+	var starttime = date.getTime();
 	if(flagclock===0){
 		startTimer.value = 'Stop';
 		flagclock = 1;
@@ -23,12 +41,18 @@ function startTimer(){
 	}
 }
 //sets array value to cookie//
-function cookietoArray(){
-	if(getCookie('myCookie') !== null){
-		myArray = [getCookie('myCookie')];
-		myArray = JSON.parse(myArray);
+function timeCookietoArray(){
+	if(getCookie('timeCookie') !== null){
+		timeArray = [getCookie('timeCookie')];
+		timeArray = JSON.parse(timeArray);
 	}
 }
+window.onload = function dateCookietoArray(){
+	if(getCookie('dateCookie') !== null){
+		dateArray = [getCookie('dateCookie')];
+		dateArray = JSON.parse(dateArray);
+	}
+};
 //sets the date and sets the values of start/stop button//
 function counter(starttime){
 	clock = document.getElementById('clock');
@@ -88,24 +112,25 @@ function resetIt(){
 	sec = 0;
 	min = 0;
 	hour = 0;
-	if(startstoptimer.value === "Stop"){
-		startstoptimer.value = "Start";
-		clock.value = "00:00:00";
-	}
-	else{
-		startstoptimer.value = "Stop";
-	}
+	startstoptimer.value = "Start";
+	stoptime = 0;
+	clock.value="00:00:00";
 	window.clearTimeout(refresh);
 }
 //This saves time values in a cookie//
 function saveIt(){
 	if(document.clock.saver.value === "Save Time"){
 		document.clock.saver.value = "Save Time";
-		document.getElementById('saveTime').innerHTML = "Time = " + clock.value + ", Date = " + currenttime;
-		myArray.push(document.getElementById('saveTime').innerHTML = "Time = " + clock.value + ", Date = " + currenttime);
-		setCookie('myCookie',myArray, exp);
-		myArray = JSON.stringify(myArray);
-		myArray = JSON.parse(myArray);
+		document.getElementById('saveTime').innerHTML = clock.value + "<br>";
+		timeArray.push(document.getElementById('saveTime').innerHTML =  clock.value + "<br>");
+		setCookie('timeCookie',timeArray, exp);
+		timeArray = JSON.stringify(timeArray.reverse());
+		timeArray = JSON.parse(timeArray);
+		document.getElementById('saveDate').innerHTML = startdate + "," + startmonth + "," + startFullYear + "<br>";
+		dateArray.push(document.getElementById('saveDate').innerHTML =  startdate + "," + startmonth + "," + startFullYear + "<br>");
+		setCookie('dateCookie',dateArray, exp);
+		dateArray = JSON.stringify(dateArray.reverse());
+		dateArray = JSON.parse(dateArray);
 		return;
 	}
 }
@@ -128,3 +153,11 @@ function getCookie(name){
 }
 var exp = new Date();                                  
 exp.setTime(exp.getTime() + (1000 * 60 * 60 * 24 * 30));
+function returnValue(){
+	for(i=0; i<timeArray.length; i++){
+		$("#tt").append("<br/><p>"+timeArray[i]+"</p>");
+	}
+	for(i=0; i<dateArray.length; i++){
+		$("#df").append("<br/><p>"+dateArray[i]+"</p>");
+	}
+}

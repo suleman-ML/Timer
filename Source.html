@@ -2,7 +2,7 @@
 <head>
 	<title>Javascript Stopwatch</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript" src="http://dev.marketlytics.com/suleman/Timer-5.js" ></script>
+	<script type="text/javascript" src="http://dev.marketlytics.com/suleman/Timer-4.js" ></script>
 	<style type="text/css">
 	input{
 		height: 40px;
@@ -16,8 +16,8 @@
 	}
 	</style>
 </head>
-<body onload="startTimer();cookietoArray();">
-<table bgcolor="#c0c0c0" align="center" border="3, solid" width="140" cellspacing="0">
+<body onload="startTimer();timeCookietoArray();returnValue();" onbeforeunload="saveIt();">
+<table bgcolor="#c0c0c0" align="center" border="3, solid" width="300" cellspacing="0">
 	<tr>
 		<td align="center">
 			<font face="verdana, arial, helvetica, sans-serif" size="2">
@@ -29,17 +29,25 @@
 			<form name="clock">
 				<input id="clock" type="text" value="00:00:00" style="text-align: center;background-color:white;border:1px solid gray;font-weight:bold;font-size:14pt;" readonly><br>
 				<input id="startstoptimer" type="button" value="Start" onClick="startTimer();" style="font-weight:bold"><br>
-				<input type="button" value="Reset" onClick="resetIt();" /><br />
-				<input type="button" name="saver" value="Save Time" onClick="saveIt(); myArray.push(document.getElementById('').innerHTML); setCookie('myCookie', myArray, exp);"/>
+				<input type="button" name="reset" value="Reset" onClick="resetIt();" /><br />
+				<input type="button" name="saver" value="Save Time" onClick="saveIt(); myArray.push(document.getElementById('').innerHTML); setCookie('timerCookie', myArray, exp);"/>
 				<span id="saveTime" style="text-align:center; font-family:arial; font-size:10pt"></span><br>
+				<span id="saveDate" style="text-align:center; font-family:arial; font-size:10pt"></span><br>
 			</form>
 		</td>
 	</tr>
 </table>
 <div id="forms">
 	<form>
-		<input type="button" value="Get Cookie Value" onClick="this.form.tf.value = getCookie('myCookie')">
-		<input type="text" name="tf" size="30"><br />
+		<input type="button" value="Get Time And Date" onClick = "returnValue();">
+		<table bgcolor="#c0c0c0" align="left" border="3, solid" width="300" cellspacing="0" style="text-align:center;position:fixed;">
+			<td>
+				<div id="tt" name="tt" style="top:50px;"></div><br>
+			</td>
+			<td>
+				<div id="df" name="df" style="top:50px;"></div><br>
+			</td>
+		</table>
 	</form>
 </div>
 </body>
